@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 /* ------ Reset CSS ------ */
 *,
 *::before,
@@ -33,6 +35,7 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     background-color: #01171b;
+    font-family: 'Poppins', sans-serif;
 }
 
 ul[class],
@@ -82,13 +85,134 @@ select {
     margin: 0 auto;
 }
 
-.header {}
+/* ------ HEADER ------ */
+.header {
+    z-index: 5;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3% 3%;
+    transition: .5s ease;
+}
 
+.header__logo {
+    color: #fff;
+    font-size: clamp(1.5em, 2vw, 2em);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: .4s ease;
+}
+
+.header__logo:hover {
+    color: #006284;
+    transition: .4s ease;
+}
+
+.header__navigation {
+    position: relative;
+}
+
+.header__navigation-item {
+    position: relative;
+    color: #fff;
+    font-size: clamp(1em, 2vw, 1.5em);
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: .3s ease;
+}
+
+.header__navigation-item:before {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: .3s ease;
+}
+
+.header__navigation-item:hover:before {
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .header__navigation {
+        display: none;
+    }
+
+    .header__navigation.active {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(1, 1, 1, 0.5);
+    }
+
+    .header__navigation-item {
+        color: #222;
+        font-size: 1.2em;
+        margin: 20px;
+    }
+
+    .header__navigation-item:before {
+        background-color: #222;
+        height: 5px;
+    }
+
+    .header__navigation.active .header__navigation-items {
+        background-color: #fff;
+        width: 600px;
+        max-width: 600px;
+        margin: 20px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+    }
+
+    /* --- Burger Menu ---*/
+    .menu-btn {
+        background: url(./img/menu.png) no-repeat center;
+    }
+
+    .menu-btn.active {
+        background: url(./img/menu-close.png) no-repeat center;
+    }
+
+    .menu-btn,
+    .menu-btn.active {
+        z-index: 5;
+        background-size: 41px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: .5s ease;
+    }
+}
+/* --- HEADER (END) --- */
+
+
+/* ------ MAIN ------ */
 .main {
     flex: 1 1 auto;
 }
+/* --- MAIN (END) --- */
 
+
+/* ------ FOOTER ------ */
 .footer {}
+/* --- FOOTER (END) --- */
+
 
 /* ------ SVG ------ */
 svg path {
